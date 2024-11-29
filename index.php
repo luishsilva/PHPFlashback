@@ -48,25 +48,16 @@
                 'name' => 'Money talk to me',
                 'author' => 'John Doe',
                 'purchaseUrl' => 'http://exempple.com',
-                'releaseYear' => 2022
+                'releaseYear' => 2000
             ]
         ];
 
-        function filterByAuthor ($books, $author) {
-            $filteredBooks = [];
-
-            foreach ($books as $book) {
-                if ($book['author'] === $author) {
-                    array_push($filteredBooks, $book);
-                }
-            }
-            return $filteredBooks;
-        }
+        $filteredBooks = array_filter($books, fn($book) => $book['releaseYear'] <= 1999);
     ?>
 
     <h2>Arrays</h2>
     <ul>
-        <?php foreach (filterByAuthor($books, 'Mary Doe') as $book) : ?>
+        <?php foreach ($filteredBooks as $book) : ?>
             <li>
                 <a href="<?=$book['name']?>">
                     <?=$book['name']?>
