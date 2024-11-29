@@ -23,29 +23,50 @@
             [
                 'name' => 'The Bible',
                 'author' => 'Jesus',
-                'purchaseUrl' => 'http://exempple.com'
+                'purchaseUrl' => 'http://exempple.com',
+                'releaseYear' => 1968
             ],
             [
                 'name' => 'Hidden Potential',
                 'author' => 'Adam Grant',
-                'purchaseUrl' => 'http://exempple.com'
+                'purchaseUrl' => 'http://exempple.com',
+                'releaseYear' => 1999
             ],
             [
                 'name' => 'Sabbath School Lesson',
                 'author' => 'John Doe',
-                'purchaseUrl' => 'http://exempple.com'
+                'purchaseUrl' => 'http://exempple.com',
+                'releaseYear' => 2000
             ],       
             [
                 'name' => 'Smart Kids',
                 'author' => 'Mary Doe',
-                'purchaseUrl' => 'http://exempple.com'
+                'purchaseUrl' => 'http://exempple.com',
+                'releaseYear' => 2024
+            ],
+            [
+                'name' => 'Money talk to me',
+                'author' => 'John Doe',
+                'purchaseUrl' => 'http://exempple.com',
+                'releaseYear' => 2022
             ]
         ];
+
+        function filterByAuthor ($books, $author) {
+            $filteredBooks = [];
+
+            foreach ($books as $book) {
+                if ($book['author'] === $author) {
+                    array_push($filteredBooks, $book);
+                }
+            }
+            return $filteredBooks;
+        }
     ?>
 
     <h2>Arrays</h2>
     <ul>
-        <?php foreach ($books as $book) : ?>
+        <?php foreach (filterByAuthor($books, 'Mary Doe') as $book) : ?>
             <li>
                 <a href="<?=$book['name']?>">
                     <?=$book['name']?>
@@ -60,5 +81,8 @@
 
     <h2>Accessing arrays indexes</h2>
     <?=$books[0]['name'];?>
+
+    <h2>Functions and Filters</h2>
+
 </body>
 </html>
