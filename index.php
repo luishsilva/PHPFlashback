@@ -17,5 +17,20 @@
     <h1>
         <?= $message?>  
     </h1>
+
+    <?php 
+        $books = [
+            "The Bible",
+            "Hidden Potential",
+            "Sabbath School Lesson"
+        ];
+    ?>
+
+    <h2>Arrays</h2>
+    <ul>
+        <?php foreach ($books as $book) : ?>
+            <li><?=$book?></li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
