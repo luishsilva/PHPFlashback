@@ -3,7 +3,9 @@ require('functions.php');
 require('Database.php');
 // require('router.php');
 
-$db = new Database;
+$config = require('config.php');
+
+$db = new Database($config['database']);
 $posts = $db->query('select title from posts')->fetchAll(PDO::FETCH_ASSOC);
 
 
