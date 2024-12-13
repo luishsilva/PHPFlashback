@@ -12,7 +12,7 @@ class Database {
         ]);
     }
 
-    public function query( $query ) 
+    public function query( $query, $params = [] ) 
     {
         $dsn = "mysql:host=localhost;port=3306;dbname=myapp;user=root;charset=utf8mb4";
 
@@ -20,7 +20,7 @@ class Database {
         
         $statement = $this->connection->prepare($query);
         
-        $statement->execute();
+        $statement->execute($params);
         
         $posts = $statement;
 
