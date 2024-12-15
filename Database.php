@@ -16,8 +16,6 @@ class Database {
     {
         $dsn = "mysql:host=localhost;port=3306;dbname=myapp;user=root;charset=utf8mb4";
 
-        
-        
         $statement = $this->connection->prepare($query);
         
         $statement->execute($params);
