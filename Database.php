@@ -3,6 +3,8 @@
 class Database {
 
     public $connection;
+    public $statement;
+
     function __construct($config, $username = 'root', $password = '')
     { 
         $dsn = 'mysql:'. http_build_query($config,'',';');
@@ -16,12 +18,26 @@ class Database {
     {
         $dsn = "mysql:host=localhost;port=3306;dbname=myapp;user=root;charset=utf8mb4";
 
-        $statement = $this->connection->prepare($query);
+        $this->statement = $this->connection->prepare($query);
         
-        $statement->execute($params);
-        
-        $posts = $statement;
+        $this->statement->execute($params);
 
-        return $posts;
+        return $this;
+    }
+
+    public function get(  )
+    {
+        return $this->statement->fetchAll();
+    }
+
+    public function find(  )
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findOrFail(  )
+    {
+        $result = $this->find();
+        return $result ? $result : abort();
     }
 }
