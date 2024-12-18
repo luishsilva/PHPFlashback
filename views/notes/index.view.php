@@ -1,7 +1,7 @@
 <?php 
-  require('partials/head.php');
-  require('partials/nav.php');
-  require('partials/banner.php');
+  require('views/partials/head.php');
+  require('views/partials/nav.php');
+  require('views/partials/banner.php');
 ?>
 
 <main>
@@ -16,9 +16,9 @@
       <?php endforeach; ?>
     </ul>
     <p class="mt-6">
-      <a href="/create-note" class="text-blue-500 hover:underline">Create Note</a>
+      <a href="/notes/create" class="text-blue-500 hover:underline">Create Note</a>
     </p>
   </div>
 </main>
 
-<?php require('partials/footer.php'); ?>
+<?php require('views/partials/footer.php'); ?>
