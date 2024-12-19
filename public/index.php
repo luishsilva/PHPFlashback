@@ -4,7 +4,10 @@ const BASE_PATH = __DIR__ .'/../';
 
 require(BASE_PATH.'functions.php');
 
-require(base_path(('Database.php')));
-require(base_path('Response.php'));
+// autoload Database class because it's being instantiated in the controller ($db = new Database($config['database']);)
+spl_autoload_register(function ($class) {
+    require base_path( "Core/{$class}.php");
+});
+
 require(base_path('router.php'));
 
